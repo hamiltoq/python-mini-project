@@ -1,20 +1,23 @@
+# File: .github/workflows/lint.yml
 name: Python Lint
 
+# Run this workflow on push or pull request
 on: [push, pull_request]
 
 jobs:
   lint:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Use the latest Linux environment
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v3  # Step 1: download the repo code
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v4  # Step 2: install Python
         with:
           python-version: '3.10'
 
       - name: Install flake8
-        run: pip install flake8
+        run: pip install flake8  # Step 3: install the linter
 
       - name: Run flake8
-        run: flake8 .
+        run: flake8 .  # Step 4: run flake8 on all code
+
